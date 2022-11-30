@@ -40,7 +40,7 @@ public class CustomerController {
         return "Working"+customerId;
     }
 
-	@RequestMapping(method = RequestMethod.POST, consumes={"application/json"})
+	@RequestMapping(value="/login", method = RequestMethod.POST, consumes={"application/json"})
 	@ApiOperation(value = "Used to Login in the System ", notes="Returns Login response",
 				response = String.class, tags = "Customers")
 	@ApiResponses(value = {
@@ -54,7 +54,7 @@ public class CustomerController {
 		return new LoginResponse();
 	}
 
-	@RequestMapping(method = RequestMethod.POST, consumes={"application/json"})
+	@RequestMapping(value="/logout", method = RequestMethod.POST, consumes={"application/json"})
 	@ApiOperation(value = "Used to Logout from the System ", notes="Returns Logout response",
 				response = String.class, tags = "Customers")
 	@ApiResponses(value = {
@@ -68,8 +68,8 @@ public class CustomerController {
 		return new LogoutResponse();
 	}
 
-	@RequestMapping(method = RequestMethod.POST, consumes={"application/json"})
-	@ApiOperation(value = "Used to Logout from the System ", notes="Returns Logout response",
+	@RequestMapping(value="/products/details", method = RequestMethod.POST, consumes={"application/json"})
+	@ApiOperation(value = "Used to See purchased products details from the System ", notes="Returns Product Details",
 				response = String.class, tags = "Customers")
 	@ApiResponses(value = {
 		@ApiResponse(code = 200, message = "Suceess|OK"),
@@ -82,8 +82,8 @@ public class CustomerController {
 		return new GetProductResponse();
 	}
 
-	@RequestMapping(method = RequestMethod.POST, consumes={"application/json"})
-	@ApiOperation(value = "Used to Logout from the System ", notes="Returns Logout response",
+	@RequestMapping(value="/products/history", method = RequestMethod.POST, consumes={"application/json"})
+	@ApiOperation(value = "Used to see purchased products history from the System ", notes="Returns Purchased item history response",
 				response = String.class, tags = "Customers")
 	@ApiResponses(value = {
 		@ApiResponse(code = 200, message = "Suceess|OK"),
@@ -96,8 +96,8 @@ public class CustomerController {
 		return new GetProductsHistoryResponse();
 	}
 
-	@RequestMapping(method = RequestMethod.POST, consumes={"application/json"})
-	@ApiOperation(value = "Used to Logout from the System ", notes="Returns Logout response",
+	@RequestMapping(value="/review/product" ,method = RequestMethod.POST, consumes={"application/json"})
+	@ApiOperation(value = "Used to Review the product in the System ", notes="Returns review Status response",
 				response = String.class, tags = "Customers")
 	@ApiResponses(value = {
 		@ApiResponse(code = 200, message = "Suceess|OK"),
@@ -114,6 +114,8 @@ public class CustomerController {
 	// getProductUpdates (Tracking)
 	// getProductHistory
 	// reviewProduct
-	// paymentsDelails
+	// paymentsDelails - get/update
+	// customer details - update
+
     
 }
