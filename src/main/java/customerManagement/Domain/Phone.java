@@ -1,15 +1,15 @@
 package customerManagement.Domain;
 
 public class Phone {
-    public int id;
+    public String number;
     public PhoneType phoneType;
     
-    private Phone(int id, PhoneType phoneType) {
-        this.id = id;
+    private Phone(String number, PhoneType phoneType) {
+        this.number = number;
         this.phoneType = phoneType;
     }
 
-    public static Phone create(int id, PhoneType phoneType) {
-        return new Phone(id, phoneType);
+    public static Phone create(String number, PhoneType phoneType) {
+        return new Phone(number, phoneType);
     }
 }

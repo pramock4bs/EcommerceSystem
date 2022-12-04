@@ -5,21 +5,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Product {
     public int productId;
-    public int customerId;
     public int quantity;
     
     @JsonCreator
     private Product(@JsonProperty("productId") int productId, 
-    		@JsonProperty("quantity") int quantity, 
-    		@JsonProperty("customerId") int customerId)
+    		@JsonProperty("quantity") int quantity)
     {
         this.productId = productId;
         this.quantity = quantity;
-        this.customerId = customerId;        
     }
 
-    public static Product Create(int productId, int quantity, int customerId)
+    public static Product Create(int productId, int quantity)
     {
-        return new Product(productId, quantity, customerId);
+        return new Product(productId, quantity);
     }
 }

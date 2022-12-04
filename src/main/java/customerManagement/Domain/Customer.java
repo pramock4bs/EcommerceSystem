@@ -7,7 +7,7 @@ public class Customer {
     public Email email;
     public Phone phone;
     public Address address;
-    public List<ProductId> cart;
+    public List<Product> cart;
     public List<ProductId> wishList;
     public int id;
 
@@ -15,7 +15,7 @@ public class Customer {
             Email email,
             Phone phone,
             Address address,
-            List<ProductId> cart,
+            List<Product> cart,
             List<ProductId> wishList) {
                 this.id = id;
         this.name = name;
@@ -30,7 +30,7 @@ public class Customer {
             Email email,
             Phone phone,
             Address address,
-            List<ProductId> cart,
+            List<Product> cart,
             List<ProductId> wishList) {
         return new Customer(-1, name, email, phone, address, cart, wishList);
     }
@@ -39,7 +39,7 @@ public class Customer {
             Email email,
             Phone phone,
             Address address,
-            List<ProductId> cart,
+            List<Product> cart,
             List<ProductId> wishList) {
         return new Customer(id, name, email, phone, address, cart, wishList);
     }
