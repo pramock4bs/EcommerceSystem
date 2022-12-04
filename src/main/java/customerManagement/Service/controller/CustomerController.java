@@ -14,6 +14,7 @@ import customerManagement.Contracts.Input.LoginRequest;
 import customerManagement.Contracts.Input.LogoutRequest;
 import customerManagement.Contracts.Input.ReviewProductRequest;
 import customerManagement.Contracts.Output.AddProductResponse;
+import customerManagement.Contracts.Output.CustomerResponse;
 import customerManagement.Contracts.Output.GetProductResponse;
 import customerManagement.Contracts.Output.GetProductsHistoryResponse;
 import customerManagement.Contracts.Output.LoginResponse;
@@ -46,79 +47,79 @@ public class CustomerController {
 		@ApiResponse(code = 404, message = "not found!!!"),
 		@ApiResponse(code = 500, message="Internal Server Error")
 	})
-    public String GetCustomer(@PathVariable(value="id") int customerId) {
-        return "Working"+customerId;
+    public CustomerResponse GetCustomer(@PathVariable(value="id") int customerId) {
+        return this._customerService.getCustomerById(customerId);
     }
 
-	@RequestMapping(value="/login", method = RequestMethod.POST, consumes={"application/json"})
-	@ApiOperation(value = "Used to Login in the System ", notes="Returns Login response",
-				response = String.class, tags = "Customers")
-	@ApiResponses(value = {
-		@ApiResponse(code = 200, message = "Suceess|OK"),
-		@ApiResponse(code = 401, message = "not authorized!"), 
-		@ApiResponse(code = 403, message = "forbidden!!!"),
-		@ApiResponse(code = 404, message = "not found!!!"),
-		@ApiResponse(code = 500, message="Internal Server Error")
-	})
-	public LoginResponse Login(@RequestBody LoginRequest logiRequest) {
-		return new LoginResponse();
-	}
+	// @RequestMapping(value="/login", method = RequestMethod.POST, consumes={"application/json"})
+	// @ApiOperation(value = "Used to Login in the System ", notes="Returns Login response",
+	// 			response = String.class, tags = "Customers")
+	// @ApiResponses(value = {
+	// 	@ApiResponse(code = 200, message = "Suceess|OK"),
+	// 	@ApiResponse(code = 401, message = "not authorized!"), 
+	// 	@ApiResponse(code = 403, message = "forbidden!!!"),
+	// 	@ApiResponse(code = 404, message = "not found!!!"),
+	// 	@ApiResponse(code = 500, message="Internal Server Error")
+	// })
+	// public LoginResponse Login(@RequestBody LoginRequest logiRequest) {
+	// 	return new LoginResponse();
+	// }
 
-	@RequestMapping(value="/logout", method = RequestMethod.POST, consumes={"application/json"})
-	@ApiOperation(value = "Used to Logout from the System ", notes="Returns Logout response",
-				response = String.class, tags = "Customers")
-	@ApiResponses(value = {
-		@ApiResponse(code = 200, message = "Suceess|OK"),
-		@ApiResponse(code = 401, message = "not authorized!"), 
-		@ApiResponse(code = 403, message = "forbidden!!!"),
-		@ApiResponse(code = 404, message = "not found!!!"),
-		@ApiResponse(code = 500, message="Internal Server Error")
-	})
-	public LogoutResponse Logout(@RequestBody LogoutRequest logoutRequest) {
-		return new LogoutResponse();
-	}
+	// @RequestMapping(value="/logout", method = RequestMethod.POST, consumes={"application/json"})
+	// @ApiOperation(value = "Used to Logout from the System ", notes="Returns Logout response",
+	// 			response = String.class, tags = "Customers")
+	// @ApiResponses(value = {
+	// 	@ApiResponse(code = 200, message = "Suceess|OK"),
+	// 	@ApiResponse(code = 401, message = "not authorized!"), 
+	// 	@ApiResponse(code = 403, message = "forbidden!!!"),
+	// 	@ApiResponse(code = 404, message = "not found!!!"),
+	// 	@ApiResponse(code = 500, message="Internal Server Error")
+	// })
+	// public LogoutResponse Logout(@RequestBody LogoutRequest logoutRequest) {
+	// 	return new LogoutResponse();
+	// }
 
-	@RequestMapping(value="/products/details", method = RequestMethod.POST, consumes={"application/json"})
-	@ApiOperation(value = "Used to See purchased products details from the System ", notes="Returns Product Details",
-				response = String.class, tags = "Customers")
-	@ApiResponses(value = {
-		@ApiResponse(code = 200, message = "Suceess|OK"),
-		@ApiResponse(code = 401, message = "not authorized!"), 
-		@ApiResponse(code = 403, message = "forbidden!!!"),
-		@ApiResponse(code = 404, message = "not found!!!"),
-		@ApiResponse(code = 500, message="Internal Server Error")
-	})
-	public GetProductResponse GetProductDetails(@RequestBody GetProductRequest logoutRequest) {
-		return new GetProductResponse();
-	}
+	// @RequestMapping(value="/products/details", method = RequestMethod.POST, consumes={"application/json"})
+	// @ApiOperation(value = "Used to See purchased products details from the System ", notes="Returns Product Details",
+	// 			response = String.class, tags = "Customers")
+	// @ApiResponses(value = {
+	// 	@ApiResponse(code = 200, message = "Suceess|OK"),
+	// 	@ApiResponse(code = 401, message = "not authorized!"), 
+	// 	@ApiResponse(code = 403, message = "forbidden!!!"),
+	// 	@ApiResponse(code = 404, message = "not found!!!"),
+	// 	@ApiResponse(code = 500, message="Internal Server Error")
+	// })
+	// public GetProductResponse GetProductDetails(@RequestBody GetProductRequest logoutRequest) {
+	// 	return new GetProductResponse();
+	// }
 
-	@RequestMapping(value="/products/history", method = RequestMethod.POST, consumes={"application/json"})
-	@ApiOperation(value = "Used to see purchased products history from the System ", notes="Returns Purchased item history response",
-				response = String.class, tags = "Customers")
-	@ApiResponses(value = {
-		@ApiResponse(code = 200, message = "Suceess|OK"),
-		@ApiResponse(code = 401, message = "not authorized!"), 
-		@ApiResponse(code = 403, message = "forbidden!!!"),
-		@ApiResponse(code = 404, message = "not found!!!"),
-		@ApiResponse(code = 500, message="Internal Server Error")
-	})
-	public GetProductsHistoryResponse GetProductsHistory(@RequestBody GetProductsHistoryRequest logoutRequest) {
-		return new GetProductsHistoryResponse();
-	}
+	// @RequestMapping(value="/products/history", method = RequestMethod.POST, consumes={"application/json"})
+	// @ApiOperation(value = "Used to see purchased products history from the System ", notes="Returns Purchased item history response",
+	// 			response = String.class, tags = "Customers")
+	// @ApiResponses(value = {
+	// 	@ApiResponse(code = 200, message = "Suceess|OK"),
+	// 	@ApiResponse(code = 401, message = "not authorized!"), 
+	// 	@ApiResponse(code = 403, message = "forbidden!!!"),
+	// 	@ApiResponse(code = 404, message = "not found!!!"),
+	// 	@ApiResponse(code = 500, message="Internal Server Error")
+	// })
+	// public GetProductsHistoryResponse GetProductsHistory(@RequestBody GetProductsHistoryRequest logoutRequest) {
+	// 	return new GetProductsHistoryResponse();
+	// }
 
-	@RequestMapping(value="/review/product" ,method = RequestMethod.POST, consumes={"application/json"})
-	@ApiOperation(value = "Used to Review the product in the System ", notes="Returns review Status response",
-				response = String.class, tags = "Customers")
-	@ApiResponses(value = {
-		@ApiResponse(code = 200, message = "Suceess|OK"),
-		@ApiResponse(code = 401, message = "not authorized!"), 
-		@ApiResponse(code = 403, message = "forbidden!!!"),
-		@ApiResponse(code = 404, message = "not found!!!"),
-		@ApiResponse(code = 500, message="Internal Server Error")
-	})
-	public ReviewProductResponse ReviewProduct(@RequestBody ReviewProductRequest logoutRequest) {
-		return new ReviewProductResponse();
-	}
+	// @RequestMapping(value="/review/product" ,method = RequestMethod.POST, consumes={"application/json"})
+	// @ApiOperation(value = "Used to Review the product in the System ", notes="Returns review Status response",
+	// 			response = String.class, tags = "Customers")
+	// @ApiResponses(value = {
+	// 	@ApiResponse(code = 200, message = "Suceess|OK"),
+	// 	@ApiResponse(code = 401, message = "not authorized!"), 
+	// 	@ApiResponse(code = 403, message = "forbidden!!!"),
+	// 	@ApiResponse(code = 404, message = "not found!!!"),
+	// 	@ApiResponse(code = 500, message="Internal Server Error")
+	// })
+	// public ReviewProductResponse ReviewProduct(@RequestBody ReviewProductRequest logoutRequest) {
+	// 	return new ReviewProductResponse();
+	// }
 
 
 	@RequestMapping(value="/cart/addproduct" ,method = RequestMethod.POST, consumes={"application/json"})
