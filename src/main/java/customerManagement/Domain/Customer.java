@@ -17,7 +17,7 @@ public class Customer {
             Address address,
             List<ProductId> cart,
             List<ProductId> wishList) {
-                this.id = id
+                this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
