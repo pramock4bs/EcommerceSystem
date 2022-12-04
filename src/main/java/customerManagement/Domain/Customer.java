@@ -23,7 +23,7 @@ public class Customer {
         this.phone = phone;
         this.address = address;
         this.cart = cart;
-        this.wishList = wishList;
+        this.wishList = wishList; 
     }
 
     public static Customer create(String name,
