@@ -51,19 +51,19 @@ public class CustomerController {
         return this._customerService.getCustomerById(customerId);
     }
 
-	// @RequestMapping(value="/login", method = RequestMethod.POST, consumes={"application/json"})
-	// @ApiOperation(value = "Used to Login in the System ", notes="Returns Login response",
-	// 			response = String.class, tags = "Customers")
-	// @ApiResponses(value = {
-	// 	@ApiResponse(code = 200, message = "Suceess|OK"),
-	// 	@ApiResponse(code = 401, message = "not authorized!"), 
-	// 	@ApiResponse(code = 403, message = "forbidden!!!"),
-	// 	@ApiResponse(code = 404, message = "not found!!!"),
-	// 	@ApiResponse(code = 500, message="Internal Server Error")
-	// })
-	// public LoginResponse Login(@RequestBody LoginRequest logiRequest) {
-	// 	return new LoginResponse();
-	// }
+	@RequestMapping(value="/login", method = RequestMethod.POST, consumes={"application/json"})
+	@ApiOperation(value = "Used to Login in the System ", notes="Returns Login response",
+				response = String.class, tags = "Customers")
+	@ApiResponses(value = {
+		@ApiResponse(code = 200, message = "Suceess|OK"),
+		@ApiResponse(code = 401, message = "not authorized!"), 
+		@ApiResponse(code = 403, message = "forbidden!!!"),
+		@ApiResponse(code = 404, message = "not found!!!"),
+		@ApiResponse(code = 500, message="Internal Server Error")
+	})
+	public LoginResponse Login(@RequestBody LoginRequest logiRequest) {
+		return this._customerService.login(logiRequest);
+	}
 
 	// @RequestMapping(value="/logout", method = RequestMethod.POST, consumes={"application/json"})
 	// @ApiOperation(value = "Used to Logout from the System ", notes="Returns Logout response",

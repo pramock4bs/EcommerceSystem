@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
+import customerManagement.Contracts.Input.LoginRequest;
 import customerManagement.Domain.Address;
 import customerManagement.Domain.Customer;
 import customerManagement.Domain.Email;
+import customerManagement.Domain.Login;
 import customerManagement.Domain.Phone;
 import customerManagement.Domain.PhoneType;
 import customerManagement.Domain.Interfaces.ICustomerRepository;
@@ -25,4 +27,8 @@ public class CustomerRepository implements ICustomerRepository {
         return Customer.create(1, "Amitabh bachhan", Email.create("a@bachhan@gmail.com"), Phone.create("23234345", PhoneType.MOBILE), Address.create(  "badi pulia ",  "Chote Naale ke paas", "India"), new ArrayList<>(), new ArrayList<>());
     }
     
+    @Override
+    public Login Authenticate(LoginRequest loginRequest) {
+        return Login.authenticate(loginRequest.email, loginRequest.password);
+    }
 }

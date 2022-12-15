@@ -4,10 +4,13 @@ import org.springframework.stereotype.Service;
 
 import customerManagement.Application.Interfaces.ICustomerService;
 import customerManagement.Contracts.Input.AddProductRequest;
+import customerManagement.Contracts.Input.LoginRequest;
 import customerManagement.Contracts.Output.AddProductResponse;
 import customerManagement.Contracts.Output.CustomerResponse;
+import customerManagement.Contracts.Output.LoginResponse;
 import customerManagement.Contracts.common.Address;
 import customerManagement.Domain.Customer;
+import customerManagement.Domain.Login;
 import customerManagement.Domain.Product;
 import customerManagement.Domain.ProductId;
 import customerManagement.Domain.Interfaces.ICustomerRepository;
@@ -33,6 +36,13 @@ public class CustomerService implements ICustomerService{
     public CustomerResponse getCustomerById(int customerId) {
         Customer customer = this.repository.Load(customerId);
         return this.mapToContract(customer);
+    }
+
+    @Override
+    public LoginResponse login(LoginRequest loginRequest) {
+        Login login = this.repository.Authenticate(loginRequest);
+
+        return LoginResponse.login(true, "");
     }
 
     private CustomerResponse mapToContract(Customer customer) {
